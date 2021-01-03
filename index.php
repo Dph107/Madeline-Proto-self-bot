@@ -46,13 +46,13 @@ $MadelineProto->setCallback(function ($update) use ($MadelineProto) {
 			        	$memory = memory_get_peak_usage(); 
  				
 			        	$ping  = "<b>🤖 Condition Bot : </b><code>online\n"; 
-	    			$ping .= "</code><b>🐘 PHP Version : </b><code>" . phpversion(); 
-	    			$ping .= "</code><b>\n💻 Memory Usage : </b><code>" . convert($memory) . "\n</code>" . "<b>💡 CPU Usage : </b><code>" . getCpuUsage() . "</code>";
-				
-		    		$ping .= "\n💠 Command Guide : !help";
-
-
-		    		yield $MadelineProto -> messages -> editMessage(['peer' => $chat_id, 'id' => $message_id, 'message' => $ping, 'parse_mode' => "MarkDown"]); 
+  	    			$ping .= "</code><b>🐘 PHP Version : </b><code>" . phpversion(); 
+  	    			$ping .= "</code><b>\n💻 Memory Usage : </b><code>" . convert($memory) . "\n</code>" . "<b>💡 CPU Usage : </b><code>" . getCpuUsage() . "</code>";
+  				
+  		    		$ping .= "\n💠 Command Guide : !help";
+  
+  
+  		    		yield $MadelineProto -> messages -> editMessage(['peer' => $chat_id, 'id' => $message_id, 'message' => $ping, 'parse_mode' => "MarkDown"]); 
  
 			} 
  
