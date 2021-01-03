@@ -16,7 +16,10 @@ include 'functions.php';
 $settings['logger']['max_size'] = 5*1024*1024;
 //$settings = ['app_info'=> ['api_id'=>xxx,'api_hash'=> 'xxx']]; 
 
-$MadelineProto = new \danog\MadelineProto\API('MyBot.Ses', $settings); 
+$MadelineProto = new \danog\MadelineProto\API('MyBot.Ses', $settings);
+
+echo dump($MadelineProro);
+
 $MadelineProto->start(); 
 $MadelineProto->setCallback(function ($update) use ($MadelineProto) { 
     if ($update['_'] == 'updateNewMessage' or $update['_'] == 'updateNewChannelMessage') { 
