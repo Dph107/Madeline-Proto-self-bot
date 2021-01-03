@@ -148,17 +148,17 @@ $MadelineProto->setCallback(function ($update) use ($MadelineProto) {
         			
 			}
 
-	else if(preg_match("/^[\/\#\!]?(flood) ([0-9]+) (.*)$/i", $text)){
+else if(preg_match("/^[\/\#\!]?(flood) ([0-9]+) (.*)$/i", $text)){
 			
-			preg_match("/^[\/\#\!]?(flood) ([0-9]+) (.*)$/i", $text, $m);
+	preg_match("/^[\/\#\!]?(flood) ([0-9]+) (.*)$/i", $text, $m);
 				
-		$flood = "";
+$flood = "";
 				
-		for($i=1; $i <= $m[2]; $i++)
+for($i=1; $i <= $m[2]; $i++)
     		$flood .= $m[3] . "\n";
     				
     				
-		yield $MadelineProto->messages->editMessage(['peer' => $chat_id, 'id' => $message_id, 'message' => $flood]);
+yield $MadelineProto->messages->editMessage(['peer' => $chat_id, 'id' => $message_id, 'message' => $flood]);
 
     }
 	
