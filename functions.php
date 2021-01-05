@@ -38,7 +38,7 @@ function convert($size) {
     return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i]; 
 }
 
-function dump($dumpedVar, $ret = true, $dumpInfo = "dumped Variable", $bool = true) {
+function dump($dumpedVar, $dumpInfo = "dumped Variable") {
     ob_start();
     echo " $dumpInfo : ";
     var_dump($dumpedVar);
@@ -55,4 +55,39 @@ function getCpuUsage(): string
     } else {
         return '_UNAVAILABLE_';
     }
+}
+
+function hostName(bool $full = false): string
+{
+    $name = getHostname();
+    if (!$full && $name && strpos($name, '.') !== false) {
+        $name = substr($name, 0, strpos($name, '.'));
+    }
+    return $name;
+}
+
+function getWebServerName(): ?string
+{
+    return $_SERVER['SERVER_NAME'] ?? null;
+}
+
+function getHostTimeout($mp): int
+{
+    $duration = $mp->__get('duration');
+    $reason   = $mp->__get('shutdow_reason');
+    if ($duration /*&& $reason && $reason !== 'stop' && $reason !== 'restart'*/) {
+        return $duration;
+    }
+    return -1;
+}
+
+function getURL(): ?string
+{
+    //$_SERVER['REQUEST_URI'] => '/base/?MadelineSelfRestart=1755455420394943907'
+    $url = null;
+    if (PHP_SAPI === 'cli') {
+        $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        $url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+    }
+    return $url;
 }
