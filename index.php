@@ -18,8 +18,6 @@ $settings['logger']['max_size'] = 5*1024*1024;
 
 $MadelineProto = new \danog\MadelineProto\API('MyBot.Ses', $settings);
 
-echo dump($MadelineProro);
-
 $MadelineProto->start(); 
 $MadelineProto->setCallback(function ($update) use ($MadelineProto) { 
     if ($update['_'] == 'updateNewMessage' or $update['_'] == 'updateNewChannelMessage') { 
