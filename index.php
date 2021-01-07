@@ -15,10 +15,9 @@ include 'functions.php';
 
 $settings['logger']['max_size'] = 5*1024*1024;
 //$settings = ['app_info'=> ['api_id'=>xxx,'api_hash'=> 'xxx']]; 
+$settings['logger']['logger'] = \danog\MadelineProto\Logger::FILE_LOGGER;
 
 $MadelineProto = new \danog\MadelineProto\API('MyBot.Ses', $settings);
-
-$settings['logger']['logger'] = \danog\MadelineProto\Logger::FILE_LOGGER;
 
 $MadelineProto->start(); 
 $MadelineProto->setCallback(function ($update) use ($MadelineProto) { 
