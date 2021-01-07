@@ -13,12 +13,12 @@ include 'functions.php';
 
 //=============( Start MadeLineProto Library )=============// 
 
-$settings['logger']['logger'] = \danog\MadelineProto\Logger::FILE_LOGGER;
-
 $settings['logger']['max_size'] = 5*1024*1024;
 //$settings = ['app_info'=> ['api_id'=>xxx,'api_hash'=> 'xxx']]; 
 
 $MadelineProto = new \danog\MadelineProto\API('MyBot.Ses', $settings);
+
+$settings['logger']['logger'] = \danog\MadelineProto\Logger::FILE_LOGGER;
 
 $MadelineProto->start(); 
 $MadelineProto->setCallback(function ($update) use ($MadelineProto) { 
