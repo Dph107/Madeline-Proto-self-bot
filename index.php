@@ -13,6 +13,8 @@ include 'functions.php';
 
 //=============( Start MadeLineProto Library )=============// 
 
+$settings['logger']['logger'] = \danog\MadelineProto\Logger::FILE_LOGGER;
+
 $settings['logger']['max_size'] = 5*1024*1024;
 //$settings = ['app_info'=> ['api_id'=>xxx,'api_hash'=> 'xxx']]; 
 
