@@ -5,7 +5,7 @@
 if(!file_exists('madeline.php'))  
     copy('https://phar.madelineproto.xyz/madeline.php', 'madeline.php'); 
  
-ini_set('memory_limit', '400M'); 
+ini_set('memory_limit', '200M'); 
 define('MADELINE_BRANCH', '');
 
 include 'madeline.php'; 
